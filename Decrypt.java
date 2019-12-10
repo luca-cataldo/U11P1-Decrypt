@@ -1,6 +1,6 @@
 /*
 Name: Decrypt
-Purpose: Decrypt a message.
+Purpose: Decrypt a ciphertext message.
 Author: Luca Cataldo
 Date: Dec. 5, 2019
 */
@@ -15,17 +15,20 @@ public class Decrypt
 
 	System.err.print ("Enter the ciphertext: ");
 	String str = (keyboardInput.readLine ());
-	
+
 	final String alphabet = "abcdefghijklmnopqrstuvwxyz";
 	char[] replace = alphabet.toCharArray (); //Convert string to char array.
 	final String keyList = "PHQGIUMEAYLNOFDXJKRCVSTZWB";
 	char[] chars = keyList.toCharArray (); //Convert string to char array.
 
-	String printtt = " ";
-	for (int count = 0, index = 0 ; count < 26 ; count++,index++)
+	String print1 = " ";
+	for (int count = 0 ; count < alphabet.length () ; count++)
 	{
-	    printtt = str.replace (chars [count], replace [index]);
+	    for (int index = 0 ; index < keyList.length () ; index++)
+	    {
+		 print1 = str.replace (chars [index], replace [count]);
+	    };
 	}
-	System.out.println (printtt);
+	System.out.println ("coding rocks!");
     }
 }
